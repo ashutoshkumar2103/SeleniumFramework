@@ -11,6 +11,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.pageobject.CartPage;
+import com.pageobject.CheckoutPage;
+import com.pageobject.ConfirmationPage;
 import com.pageobject.LoginPage;
 import com.pageobject.ProductCatalog;
 
@@ -18,7 +20,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class SubmitOrderTest {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		String productName = "Zara Coat 3";
 		
@@ -34,32 +36,21 @@ public class SubmitOrderTest {
 		ProductCatalog productCatalog = login.login("wwwgmail@gmail.com", "Ashu@1234");
 
 //		STEP 2: Finding the catalogs items
+//		ProductCatalog productCatalog = new ProductCatalog(driver);
 		List<WebElement> products = productCatalog.getProductList();
 		productCatalog.AddProductToCart(productName);
 		CartPage cartPage = productCatalog.goToCartPage();
 		
 		Boolean match = cartPage.verifyProductDisplay(productName);
 		Assert.assertTrue(match);
-		cartPage.goToCheckout();
+//		cartPage.goToCheckout();
+		CheckoutPage checkoutPage = cartPage.goToCheckout();
 		
-		driver.findElement(By.xpath("//button[contains(text(),'Checkout')]")).click();
-
-//		Using Actions class to write in the input field
-		
-		Actions a = new Actions(driver);
-		a.sendKeys(driver.findElement(By.cssSelector("[placeholder='Select Country']")), "india").build().perform();
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector(".ta-results")));
-		driver.findElement(By.cssSelector(".ta-item:nth-of-type(2)")).click();
-		
-//		Checking out
-		driver.findElement(By.cssSelector(".action__submit")).click();
-		
-//		STEP 5: Verifying the order confirmation
-		String message = "THANKYOU FOR THE ORDER.";
-		String confirmMessage = driver.findElement(By.cssSelector(".hero-primary")).getText();
-		Assert.assertTrue(confirmMessage.equalsIgnoreCase(message));
-		System.out.println("Confirmation matched: " + confirmMessage);		
-
+		checkoutPage.selectCountry("india");
+		ConfirmationPage confirmationPage = checkoutPage.submitOrder();
+		String confirmMessage = confirmationPage.getConfirmationMessage();
+		Assert.assertTrue(confirmMessage.equalsIgnoreCase("THANKYOU FOR THE ORDER."));
+		System.out.println("Confirmation matched: " + confirmMessage);
 //		Quit is used to close all the instances of the browser opened by the driver, whereas close is used to close the current instance of the browser opened by the driver
 		driver.quit();
 		

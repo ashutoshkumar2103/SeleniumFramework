@@ -46,7 +46,7 @@ public class ProductCatalog extends AbstractComponent {
 		return prod;
 	}
 
-	public void AddProductToCart(String productName) {
+	public void AddProductToCart(String productName) throws InterruptedException {
 //		Can you apply PageFactory within WebElement.findElement() method? 
 //		No, you cannot apply PageFactory within WebElement.findElement() method because PageFactory is used to initialize the elements in the page class and WebElement.findElement() is used to locate the elements in the page class. Hence we cannot use PageFactory within WebElement.findElement() method.
 //		It is not possible to apply Pagefactory within WebElement.findElement() method.
