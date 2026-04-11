@@ -28,12 +28,20 @@ public class LoginPage extends AbstractComponent {
 	@FindBy(id = "login")
 	WebElement loginBtn;
 
+	@FindBy(css = "[class*='flyInOut']")
+	WebElement errorMessage;
+
 	public ProductCatalog login(String userEmail, String userPassword) {
 		email.sendKeys(userEmail);
 		password.sendKeys(userPassword);
 		loginBtn.click();
 		ProductCatalog productCatalog = new ProductCatalog(driver);
 		return productCatalog;
+	}
+
+	public String getErrorMessage() {
+		waitForWebElementToAppear(errorMessage);
+		return errorMessage.getText();
 	}
 
 	public void goTo() {

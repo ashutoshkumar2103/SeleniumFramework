@@ -1,7 +1,6 @@
 package com.abstractcomponents;
 
 import java.time.Duration;
-import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pageobject.CartPage;
+import com.pageobject.OrderPage;
 
 public class AbstractComponent {
 
@@ -25,9 +25,17 @@ public class AbstractComponent {
 	@FindBy(xpath = "//button[@routerlink='/dashboard/cart']")
 	WebElement cartBtn;
 
+	@FindBy(css = "[routerlink*='myorders']")
+	WebElement orderBtn;
+
 	public void waitForElementToAppear(By findBy) {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
+	}
+
+	public void waitForWebElementToAppear(WebElement findBy) {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		wait.until(ExpectedConditions.visibilityOf(findBy));
 	}
 
 	public void waitForElementToDisappear(WebElement findBy) throws InterruptedException {
@@ -40,5 +48,10 @@ public class AbstractComponent {
 		cartBtn.click();
 		CartPage cartPage = new CartPage(driver);
 		return cartPage;
+	}
+	public OrderPage goToOrderPage() {
+		orderBtn.click();
+		OrderPage orderPage = new OrderPage(driver);
+		return orderPage;
 	}
 }
