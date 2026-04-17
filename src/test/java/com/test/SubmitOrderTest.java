@@ -1,16 +1,13 @@
 package com.test;
 
+import java.io.File;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -18,12 +15,10 @@ import org.testng.annotations.Test;
 import com.pageobject.CartPage;
 import com.pageobject.CheckoutPage;
 import com.pageobject.ConfirmationPage;
-import com.pageobject.LoginPage;
 import com.pageobject.OrderPage;
 import com.pageobject.ProductCatalog;
 import com.testcomponents.BaseTest;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
+import org.apache.commons.io.FileUtils;
 
 public class SubmitOrderTest extends BaseTest {
 
@@ -60,6 +55,15 @@ public class SubmitOrderTest extends BaseTest {
 		OrderPage orderPage = productCatalog.goToOrderPage();
 		Assert.assertTrue(orderPage.verifyOrderDisplay(productName));
 	}
+
+	public File getScreenshot(String testCaseName) throws IOException {
+		TakesScreenshot sc = (TakesScreenshot) driver;
+	    File source = sc.getScreenshotAs(OutputType.FILE);
+	    File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
+		FileUtils.copyFile(source, file);
+		return file;
+	}
+
 
 //	This is the old way of passing the data to the test method, we can use the HashMap to pass the data to the test method.
 //	@DataProvider
