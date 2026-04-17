@@ -1,6 +1,7 @@
 package com.test;
 
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
@@ -68,18 +69,21 @@ public class SubmitOrderTest extends BaseTest {
 
 //	This is the modified was of above code for passing the data to the test method, as you can see that we are using the HashMap to pass the data to the test method, this is more readable and maintainable way of passing the data to the test method.
 	@DataProvider
-	public Object[][] getData() {
-		HashMap<String, String> map = new HashMap<String, String>();
-		map.put("email", "wwwgmail@gmail.com");
-		map.put("password", "Ashu@1234");
-		map.put("product_name", "Zara Coat 3");
+	public Object[][] getData() throws IOException {
 
-		HashMap<String, String> map1 = new HashMap<String, String>();
-		map1.put("email", "wwwtest@gmail.com");
-		map1.put("password", "Ashu@1234");
-		map1.put("product_name", "ADIDAS ORIGINAL");
-		
-		return new Object[][] {{map},{map1}};
-		
+//		The hasmap can again be written in the form of json and we can use the jackson api to read the data from the json file and pass it to the test method, this is more readable and maintainable way of passing the data to the test method.
+//		HashMap<String, String> map = new HashMap<String, String>();
+//		map.put("email", "wwwgmail@gmail.com");
+//		map.put("password", "Ashu@1234");
+//		map.put("product_name", "Zara Coat 3");
+//
+//		HashMap<String, String> map1 = new HashMap<String, String>();
+//		map1.put("email", "wwwtest@gmail.com");
+//		map1.put("password", "Ashu@1234");
+//		map1.put("product_name", "ADIDAS ORIGINAL");
+//
+//		return new Object[][] {{map},{map1}};
+		List<HashMap<String, String>> data = getJsonDataToHashMap(System.getProperty("user.dir") + "\\src\\test\\java\\com\\data\\PurchaseOrder.json");
+		return new Object[][] {{data.get(0)}, {data.get(0)}, {data.get(1)}};
 	}
 }

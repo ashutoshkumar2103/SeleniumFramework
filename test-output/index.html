@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,12 +103,17 @@
                     <div class="method-list-content passed suite-Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Suite" title="com.test.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})">submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Suite" title="com.test.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})">submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Suite" title="com.test.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})">submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Suite" title="com.test.SubmitOrderTest" class="method navigator-link" hash-for-method="submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})">submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Suite -->
@@ -131,10 +136,10 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})">
-                  </a> <!-- submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com}) -->
+                  <a name="submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})">
+                  </a> <!-- submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com}) -->
                   <span class="method-name">submitOrder</span>
-                  <span class="parameters">({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})</span>
+                  <span class="parameters">({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -143,6 +148,14 @@
                   </a> <!-- submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com}) -->
                   <span class="method-name">submitOrder</span>
                   <span class="parameters">({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})">
+                  </a> <!-- submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com}) -->
+                  <span class="method-name">submitOrder</span>
+                  <span class="parameters">({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -225,20 +238,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'submitOrder')
 data.setCell(0, 2, 'com.test.SubmitOrderTest')
-data.setCell(0, 3, 7838);
+data.setCell(0, 3, 7152);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'submitOrder')
 data.setCell(1, 2, 'com.test.SubmitOrderTest')
-data.setCell(1, 3, 6997);
+data.setCell(1, 3, 6959);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'submitOrder')
+data.setCell(2, 2, 'com.test.SubmitOrderTest')
+data.setCell(2, 3, 6861);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 25 seconds</span>
+              <span class="suite-total-time">Total running time: 32 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -287,23 +304,35 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})</span>
-                <span class="method-start">2609 ms</span>
+                <span class="method-start">5729 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">10452 ms</span>
+                <span class="method-start">12890 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">launchApplication</span>
-                <span class="method-start">10753 ms</span>
+                <span class="method-start">13219 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})</span>
-                <span class="method-start">16380 ms</span>
+                <span class="method-name">submitOrder({product_name=Zara Coat 3, password=Ashu@1234, email=wwwgmail@gmail.com})</span>
+                <span class="method-start">14783 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">23380 ms</span>
+                <span class="method-start">21747 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">launchApplication</span>
+                <span class="method-start">22107 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">submitOrder({product_name=ADIDAS ORIGINAL, password=Ashu@1234, email=wwwtest@gmail.com})</span>
+                <span class="method-start">25143 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown</span>
+                <span class="method-start">32004 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
