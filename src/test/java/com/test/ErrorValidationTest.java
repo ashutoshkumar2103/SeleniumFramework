@@ -2,22 +2,20 @@ package com.test;
 
 import java.io.IOException;
 import java.util.List;
-
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import com.pageobject.ProductCatalog;
 import com.testcomponents.BaseTest;
 
 public class ErrorValidationTest extends BaseTest {
 
-	@Test(groups = {"ErrorHandling"})
-	public void submitOrder() throws IOException, InterruptedException {
+	@Test(groups = {"ErrorHandling"}, retryAnalyzer = com.testcomponents.RetryExecution.class)
+	public void loginErrorValidation() throws IOException, InterruptedException {
 //		String productName = "ZARA COAT 3" ;
 		login.login("wwwgmail@gmail.com", "Asu@1234");
 		login.getErrorMessage();
-		Assert.assertEquals("Incorrect email or password.", login.getErrorMessage());
+		Assert.assertEquals("Incorrect email password.", login.getErrorMessage());
 	}
 
 	@Test

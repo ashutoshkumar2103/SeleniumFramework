@@ -56,15 +56,6 @@ public class SubmitOrderTest extends BaseTest {
 		Assert.assertTrue(orderPage.verifyOrderDisplay(productName));
 	}
 
-	public File getScreenshot(String testCaseName) throws IOException {
-		TakesScreenshot sc = (TakesScreenshot) driver;
-	    File source = sc.getScreenshotAs(OutputType.FILE);
-	    File file = new File(System.getProperty("user.dir") + "//reports//" + testCaseName + ".png");
-		FileUtils.copyFile(source, file);
-		return file;
-	}
-
-
 //	This is the old way of passing the data to the test method, we can use the HashMap to pass the data to the test method.
 //	@DataProvider
 //	public Object[][] getData1() {
