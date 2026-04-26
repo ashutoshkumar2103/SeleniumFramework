@@ -14,6 +14,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -34,10 +35,16 @@ public class BaseTest {
 //		Properties class is used for reading the data from the properties file and it is a key-value pair, where the key is the name of the property and the value is the value of the property
 		Properties prop = new Properties();
 		prop.load(fis);
-		String browName = prop.getProperty("browser");
-		if (browName.equalsIgnoreCase("chrome")) {
+		
+		String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
+		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+		}
+		else {
+			browserName.equalsIgnoreCase("edge");
+			WebDriverManager.edgedriver().setup();
+			driver = new EdgeDriver();
 		}
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
