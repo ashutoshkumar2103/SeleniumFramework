@@ -17,6 +17,7 @@ public class ListenersNG extends BaseTest implements ITestListener{
 
 	ExtentTest test;
 	ExtentReports extent = ExtentReportersNG.getReporterObject();
+//	ThreadLocal is a class in Java that provides thread-local variables. It allows you to create variables that are local to the current thread, meaning that each thread has its own copy of the variable. This is useful in multi-threaded environments where you want to avoid sharing data between threads and ensure that each thread has its own independent state.
 	ThreadLocal<ExtentTest> localThread = new ThreadLocal<>();
 
 	@Override

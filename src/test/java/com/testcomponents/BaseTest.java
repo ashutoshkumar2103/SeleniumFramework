@@ -8,12 +8,13 @@ import java.time.Duration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
-
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -37,9 +38,14 @@ public class BaseTest {
 		prop.load(fis);
 		
 		String browserName = System.getProperty("browser") != null ? System.getProperty("browser") : prop.getProperty("browser");
-		if (browserName.equalsIgnoreCase("chrome")) {
+		if (browserName.contains("chrome")) {
+			ChromeOptions chromeOptions = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			if (browserName.contains("headless")) {
+				chromeOptions.addArguments("headless");
+				chromeOptions.addArguments("--window-size=1920,1080");
+			}
+			driver = new ChromeDriver(chromeOptions);
 		}
 		else {
 			browserName.equalsIgnoreCase("edge");

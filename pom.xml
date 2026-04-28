@@ -7,10 +7,9 @@
   <dependencies>
   	<!-- Source: https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
 	<dependency>
-	    <groupId>org.seleniumhq.selenium</groupId>
-	    <artifactId>selenium-java</artifactId>
-	    <version>4.41.0</version>
-	    <scope>compile</scope>
+	  <groupId>org.seleniumhq.selenium</groupId>
+	  <artifactId>selenium-java</artifactId>
+	  <version>4.21.0</version>
 	</dependency>
 
 	<!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
@@ -85,7 +84,7 @@
 				        <version>3.5.5</version>
 				        <configuration>
 				          <suiteXmlFiles>
-				            <suiteXmlFile>testSuites/ErrorValidationTests</suiteXmlFile>
+				            <suiteXmlFile>testSuites/ErrorValidationTests.xml</suiteXmlFile>
 				          </suiteXmlFiles>
 				        </configuration>
 				      </plugin>
