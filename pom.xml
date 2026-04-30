@@ -12,12 +12,28 @@
 	  <version>4.21.0</version>
 	</dependency>
 
+	<!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-java</artifactId>
+	    <version>7.34.3</version>
+	    <scope>compile</scope>
+	</dependency>
+
 	<!-- Source: https://mvnrepository.com/artifact/org.testng/testng -->
 	<dependency>
 	    <groupId>org.testng</groupId>
 	    <artifactId>testng</artifactId>
 	    <version>7.12.0</version>
 	    <scope>test</scope>
+	</dependency>
+
+	<!-- Source: https://mvnrepository.com/artifact/io.cucumber/cucumber-testng -->
+	<dependency>
+	    <groupId>io.cucumber</groupId>
+	    <artifactId>cucumber-testng</artifactId>
+	    <version>7.34.3</version>
+	    <scope>compile</scope>
 	</dependency>
 
 	<!-- Source: https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
@@ -37,7 +53,8 @@
 	</dependency>
 
   </dependencies>
-
+  
+  
 	<profiles>
 		<profile>
 			<id>Regression</id>
@@ -73,7 +90,7 @@
 				</plugins>
 				</build>
 		</profile>
-		
+
 		<profile>
 			<id>ErrorValidation</id>
 				<build>
@@ -91,13 +108,10 @@
 				</plugins>
 				</build>
 		</profile>
-		
-		
 	</profiles>
 </project>
 
 <!-- 
-	
 	<profiles>
     <profile>
         <id>Regression</id>
@@ -128,14 +142,9 @@
         </plugin>
     </plugins>
 </build>
-	
 -->
 
 <!--
 	username: wwwgmail@gmail.com
 	password: Ashu@1234
 -->
-
-
-
-
