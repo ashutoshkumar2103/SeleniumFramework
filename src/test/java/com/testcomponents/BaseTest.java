@@ -41,9 +41,12 @@ public class BaseTest {
 		if (browserName.contains("chrome")) {
 			ChromeOptions chromeOptions = new ChromeOptions();
 			WebDriverManager.chromedriver().setup();
+			
+			chromeOptions.addArguments("--window-size=1920,1080");
+			chromeOptions.addArguments("--start-maximized");
+
 			if (browserName.contains("headless")) {
-				chromeOptions.addArguments("headless");
-				chromeOptions.addArguments("--window-size=1920,1080");
+				chromeOptions.addArguments("--headless=new");
 			}
 			driver = new ChromeDriver(chromeOptions);
 		}
