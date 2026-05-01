@@ -58,4 +58,10 @@ public class StepDefinitionImp extends BaseTest {
 		System.out.println("Confirmation matched: " + confirmMessage);
 		driver.close();
 	}
+
+	@Then("{string} error message should be displayed")
+	public void error_message_should_be_displayed(String expectedErrorMessage) {
+		Assert.assertEquals("Incorrect email or password.", login.getErrorMessage());
+		driver.close();
+	}
 }

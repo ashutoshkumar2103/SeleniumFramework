@@ -11,7 +11,7 @@ public class RetryExecution implements IRetryAnalyzer{
 
 	@Override
 	public boolean retry(ITestResult result) {
-		if(count < retryLimit) {
+		if(!result.isSuccess() && count < retryLimit) {
 			count++;
 			return true;
 		}

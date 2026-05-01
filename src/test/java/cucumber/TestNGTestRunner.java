@@ -23,6 +23,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 		features = "src/test/java/cucumber",
+		tags = "@RegressionOrder", //"@ErrorValidations",
 		glue = "stepDefinitions",
 		dryRun = false,
 		monochrome = true,

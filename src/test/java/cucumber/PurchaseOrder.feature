@@ -5,7 +5,7 @@ Feature: Purchase the order from Ecommerce Website
 Background:
 Given I am on ecommerce website
 	
-@tag2
+@RegressionOrder
 Scenario Outline: Positive test of Submitting the order
 Given logged in with username <username> and password <password>
 When I add the <productName> to the cart

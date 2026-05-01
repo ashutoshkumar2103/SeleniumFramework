@@ -1,9 +1,12 @@
 package com.pageobject;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.abstractcomponents.AbstractComponent;
 
@@ -40,6 +43,7 @@ public class LoginPage extends AbstractComponent {
 	}
 
 	public String getErrorMessage() {
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
 		waitForWebElementToAppear(errorMessage);
 		return errorMessage.getText();
 	}
