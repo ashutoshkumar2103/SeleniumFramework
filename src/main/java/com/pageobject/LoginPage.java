@@ -42,8 +42,8 @@ public class LoginPage extends AbstractComponent {
 		return productCatalog;
 	}
 
-	public String getErrorMessage() {
-		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+	public String getErrorMessage() throws InterruptedException {
+		Thread.sleep(10);
 		waitForWebElementToAppear(errorMessage);
 		return errorMessage.getText();
 	}
